@@ -1,0 +1,282 @@
+/* Wanted Design System — colors & type tokens
+ *
+ * Two-tier:
+ *   1. Atomic — raw color scales (--color-blue-50 etc) and type scale (--font-display-2 etc)
+ *   2. Semantic — meaning-bound tokens (--text-primary, --surface-normal, --h1 etc)
+ *
+ * Drop into any HTML via <link rel="stylesheet" href="colors_and_type.css">.
+ */
+
+/* -------- WEBFONTS -------- */
+/* Pretendard — local OTF files supplied by user.
+   Wanted Sans display still falling back to Pretendard + system sans. */
+@font-face { font-family: "Pretendard"; font-weight: 100; font-style: normal; src: url("fonts/Pretendard-Thin.otf") format("opentype"); font-display: swap; }
+@font-face { font-family: "Pretendard"; font-weight: 200; font-style: normal; src: url("fonts/Pretendard-ExtraLight.otf") format("opentype"); font-display: swap; }
+@font-face { font-family: "Pretendard"; font-weight: 300; font-style: normal; src: url("fonts/Pretendard-Light.otf") format("opentype"); font-display: swap; }
+@font-face { font-family: "Pretendard"; font-weight: 400; font-style: normal; src: url("fonts/Pretendard-Regular.otf") format("opentype"); font-display: swap; }
+@font-face { font-family: "Pretendard"; font-weight: 500; font-style: normal; src: url("fonts/Pretendard-Medium.otf") format("opentype"); font-display: swap; }
+@font-face { font-family: "Pretendard"; font-weight: 600; font-style: normal; src: url("fonts/Pretendard-SemiBold.otf") format("opentype"); font-display: swap; }
+@font-face { font-family: "Pretendard"; font-weight: 700; font-style: normal; src: url("fonts/Pretendard-Bold.otf") format("opentype"); font-display: swap; }
+@font-face { font-family: "Pretendard"; font-weight: 800; font-style: normal; src: url("fonts/Pretendard-ExtraBold.otf") format("opentype"); font-display: swap; }
+@font-face { font-family: "Pretendard"; font-weight: 900; font-style: normal; src: url("fonts/Pretendard-Black.otf") format("opentype"); font-display: swap; }
+
+:root {
+  --font-sans: "Pretendard", -apple-system, BlinkMacSystemFont, system-ui, sans-serif;
+  --font-display: "Wanted Sans", "Pretendard", system-ui, sans-serif;
+  --font-mono: "SF Mono", "JetBrains Mono", ui-monospace, Menlo, monospace;
+
+  /* ============ ATOMIC COLORS ============ */
+  /* Common */
+  --color-common-100: #FFFFFF;
+  --color-common-0: #000000;
+
+  /* Neutral */
+  --color-neutral-99: #F7F7F7;
+  --color-neutral-95: #DCDCDC;
+  --color-neutral-90: #C4C4C4;
+  --color-neutral-80: #B0B0B0;
+  --color-neutral-70: #9B9B9B;
+  --color-neutral-60: #8A8A8A;
+  --color-neutral-50: #737373;
+  --color-neutral-40: #5C5C5C;
+  --color-neutral-30: #474747;
+  --color-neutral-22: #303030;
+  --color-neutral-20: #2A2A2A;
+  --color-neutral-15: #1C1C1C;
+  --color-neutral-10: #171717;
+  --color-neutral-5:  #0F0F0F;
+  --color-neutral-0:  #000000;
+
+  /* Cool Neutral — workhorse neutral */
+  --color-coolneutral-99: #F7F7F8;
+  --color-coolneutral-98: #F4F4F5;
+  --color-coolneutral-97: #EAEBEC;
+  --color-coolneutral-96: #E1E2E4;
+  --color-coolneutral-95: #DBDCDF;
+  --color-coolneutral-90: #C2C4C8;
+  --color-coolneutral-80: #AEB0B6;
+  --color-coolneutral-70: #989BA2;
+  --color-coolneutral-60: #878A93;
+  --color-coolneutral-50: #70737C;
+  --color-coolneutral-40: #5A5C63;
+  --color-coolneutral-30: #46474C;
+  --color-coolneutral-25: #37383C;
+  --color-coolneutral-23: #333438;
+  --color-coolneutral-22: #2E2F33;
+  --color-coolneutral-20: #292A2D;
+  --color-coolneutral-17: #212225;
+  --color-coolneutral-15: #1B1C1E;
+  --color-coolneutral-10: #171719;
+  --color-coolneutral-7:  #141415;
+  --color-coolneutral-5:  #0F0F10;
+
+  /* Blue — brand */
+  --color-blue-99: #F7FBFF;
+  --color-blue-95: #EAF2FE;
+  --color-blue-90: #C9DEFE;
+  --color-blue-80: #9EC5FF;
+  --color-blue-70: #69A5FF;
+  --color-blue-65: #4F95FF;
+  --color-blue-60: #3385FF;
+  --color-blue-55: #1A75FF;
+  --color-blue-50: #0066FF;   /* Wanted Blue */
+  --color-blue-45: #005EEB;
+  --color-blue-40: #0054D1;
+  --color-blue-30: #003E9C;
+  --color-blue-20: #002966;
+  --color-blue-10: #001536;
+
+  /* Red */
+  --color-red-99: #FFFAFA;
+  --color-red-95: #FEECEC;
+  --color-red-90: #FED5D5;
+  --color-red-80: #FFB5B5;
+  --color-red-70: #FF8C8C;
+  --color-red-60: #FF6363;
+  --color-red-50: #FF4242;
+  --color-red-40: #E52222;
+  --color-red-30: #B20C0C;
+  --color-red-20: #750404;
+  --color-red-10: #3B0101;
+
+  /* Green */
+  --color-green-99: #F2FFF6;
+  --color-green-95: #D9FFE6;
+  --color-green-90: #ACFCC7;
+  --color-green-80: #7DF5A5;
+  --color-green-70: #49E57D;
+  --color-green-60: #1ED45A;
+  --color-green-50: #00BF40;
+  --color-green-40: #009632;
+  --color-green-30: #006E25;
+  --color-green-20: #004517;
+  --color-green-10: #00240C;
+
+  /* Orange */
+  --color-orange-50: #FF9200;
+  --color-orange-95: #FEF4E6;
+  --color-orange-90: #FEE6C6;
+  --color-orange-70: #FFC06E;
+  --color-orange-40: #D17600;
+  --color-orange-30: #9C5800;
+
+  /* Red Orange */
+  --color-redorange-50: #FF5E00;
+  --color-redorange-90: #FEDBC6;
+  --color-redorange-30: #943600;
+
+  /* Lime */
+  --color-lime-50: #58CF04;
+  --color-lime-37: #429E00;
+
+  /* Cyan */
+  --color-cyan-50: #00BDDE;
+  --color-cyan-90: #B5F4FF;
+  --color-cyan-30: #006F82;
+
+  /* Light Blue */
+  --color-lightblue-50: #00AEFF;
+  --color-lightblue-90: #C4ECFE;
+
+  /* Violet */
+  --color-violet-50: #6541F2;
+  --color-violet-90: #DBD3FE;
+  --color-violet-30: #3A16C9;
+
+  /* Purple */
+  --color-purple-50: #CB59FF;
+  --color-purple-90: #F2D6FF;
+
+  /* Pink */
+  --color-pink-50: #F553DA;
+  --color-pink-90: #FED3F7;
+
+  /* Alpha (overlays / dividers) */
+  --alpha-05: 0.05;
+  --alpha-08: 0.08;
+  --alpha-12: 0.12;
+  --alpha-16: 0.16;
+  --alpha-22: 0.22;
+  --alpha-28: 0.28;
+  --alpha-35: 0.35;
+  --alpha-43: 0.43;
+  --alpha-52: 0.52;
+  --alpha-61: 0.61;
+  --alpha-74: 0.74;
+  --alpha-88: 0.88;
+
+  /* ============ SEMANTIC COLORS — LIGHT ============ */
+  --text-primary:    rgba(46, 47, 51, 0.88);
+  --text-strong:     #000000;
+  --text-neutral:    rgba(55, 56, 60, 0.88);
+  --text-neutralalt: rgba(55, 56, 60, 0.61);
+  --text-alternative:rgba(55, 56, 60, 0.43);
+  --text-disabled:   rgba(55, 56, 60, 0.28);
+  --text-onbright:   #FFFFFF;
+  --text-accent:     #0066FF;
+  --text-positive:   #00BF40;
+  --text-negative:   #FF4242;
+
+  --surface-normal:  #FFFFFF;
+  --surface-alt:     #F7F7F8;
+  --surface-soft:    rgba(112, 115, 124, 0.08);
+  --surface-elev:    #FFFFFF;
+  --surface-inverse: #171719;
+  --surface-hover:   rgba(112, 115, 124, 0.05);
+  --surface-pressed: rgba(112, 115, 124, 0.12);
+
+  --line-normal:     rgba(112, 115, 124, 0.22);
+  --line-strong:     rgba(112, 115, 124, 0.43);
+  --line-subtle:     rgba(112, 115, 124, 0.12);
+
+  --accent-primary:    #0066FF;
+  --accent-onprimary:  #FFFFFF;
+  --accent-primaryhover: #005EEB;
+  --accent-soft:       #EAF2FE;
+
+  --status-positive: #00BF40;
+  --status-negative: #FF4242;
+  --status-cautious: #FF9200;
+  --status-info:     #0066FF;
+
+  --shadow-sm: 0 1px 4px rgba(0, 0, 0, 0.06);
+  --shadow-md: 0 4px 12px rgba(0, 0, 0, 0.08);
+  --shadow-lg: 0 12px 32px rgba(0, 0, 0, 0.12);
+
+  /* ============ TYPE — ATOMIC + SEMANTIC ============ */
+  /* sizes / line-heights / tracking from Figma */
+  --display-2-size: 40px; --display-2-lh: 1.3;     --display-2-tr: -0.0282em;
+  --display-3-size: 36px; --display-3-lh: 1.334;   --display-3-tr: -0.027em;
+  --title-1-size:   32px; --title-1-lh:   1.375;   --title-1-tr:   -0.0253em;
+  --title-2-size:   28px; --title-2-lh:   1.358;   --title-2-tr:   -0.0236em;
+  --title-3-size:   24px; --title-3-lh:   1.334;   --title-3-tr:   -0.023em;
+  --heading-1-size: 22px; --heading-1-lh: 1.364;   --heading-1-tr: -0.0194em;
+  --heading-2-size: 20px; --heading-2-lh: 1.4;     --heading-2-tr: -0.012em;
+  --headline-1-size:18px; --headline-1-lh:1.445;   --headline-1-tr:-0.002em;
+  --headline-2-size:17px; --headline-2-lh:1.412;   --headline-2-tr:0em;
+  --body-1-size:    16px; --body-1-lh:    1.5;     --body-1-tr:    0.0057em;
+  --body-1r-lh:     1.625;
+  --body-2-size:    15px; --body-2-lh:    1.467;   --body-2-tr:    0.0096em;
+  --body-2r-lh:     1.6;
+  --label-1-size:   14px; --label-1-lh:   1.429;   --label-1-tr:   0.0145em;
+  --label-1r-lh:    1.571;
+  --label-2-size:   13px; --label-2-lh:   1.385;   --label-2-tr:   0.0194em;
+  --caption-1-size: 12px; --caption-1-lh: 1.334;   --caption-1-tr: 0.0252em;
+  --caption-2-size: 11px; --caption-2-lh: 1.273;   --caption-2-tr: 0.0311em;
+
+  /* ============ SPACING / RADII ============ */
+  --space-1: 4px; --space-2: 8px; --space-3: 12px; --space-4: 16px;
+  --space-5: 20px; --space-6: 24px; --space-8: 32px; --space-12: 48px;
+  --space-16: 64px; --space-24: 96px; --space-32: 128px;
+
+  --radius-1: 4px; --radius-2: 8px; --radius-3: 12px; --radius-4: 16px;
+  --radius-6: 24px; --radius-8: 32px; --radius-pill: 999px;
+  --radius-card: 24px; --radius-card-lg: 32px; --radius-section: 64px;
+}
+
+/* Dark theme override */
+[data-theme="dark"] {
+  --text-primary:    rgba(255, 255, 255, 0.88);
+  --text-strong:     #FFFFFF;
+  --text-neutral:    rgba(255, 255, 255, 0.78);
+  --text-neutralalt: rgba(255, 255, 255, 0.55);
+  --text-alternative:rgba(255, 255, 255, 0.40);
+  --text-disabled:   rgba(255, 255, 255, 0.25);
+  --text-onbright:   #171719;
+  --surface-normal:  #171719;
+  --surface-alt:     #1B1C1E;
+  --surface-soft:    rgba(255, 255, 255, 0.06);
+  --surface-elev:    #212225;
+  --surface-inverse: #FFFFFF;
+  --line-normal:     rgba(255, 255, 255, 0.16);
+}
+
+/* ============ SEMANTIC TYPE CLASSES ============ */
+body { font-family: var(--font-sans); color: var(--text-primary); background: var(--surface-normal); }
+
+.t-display-1 { font-family: var(--font-display); font-weight: 600; font-size: 72px; line-height: 1.15; letter-spacing: -0.03em; color: var(--text-strong); }
+.t-display-2 { font-weight: 700; font-size: var(--display-2-size); line-height: var(--display-2-lh); letter-spacing: var(--display-2-tr); color: var(--text-strong); }
+.t-display-3 { font-weight: 700; font-size: var(--display-3-size); line-height: var(--display-3-lh); letter-spacing: var(--display-3-tr); color: var(--text-strong); }
+.t-title-1   { font-weight: 700; font-size: var(--title-1-size);   line-height: var(--title-1-lh);   letter-spacing: var(--title-1-tr); }
+.t-title-2   { font-weight: 700; font-size: var(--title-2-size);   line-height: var(--title-2-lh);   letter-spacing: var(--title-2-tr); }
+.t-title-3   { font-weight: 700; font-size: var(--title-3-size);   line-height: var(--title-3-lh);   letter-spacing: var(--title-3-tr); }
+.t-heading-1 { font-weight: 700; font-size: var(--heading-1-size); line-height: var(--heading-1-lh); letter-spacing: var(--heading-1-tr); }
+.t-heading-2 { font-weight: 700; font-size: var(--heading-2-size); line-height: var(--heading-2-lh); letter-spacing: var(--heading-2-tr); }
+.t-headline-1{ font-weight: 600; font-size: var(--headline-1-size);line-height: var(--headline-1-lh);letter-spacing: var(--headline-1-tr); }
+.t-headline-2{ font-weight: 600; font-size: var(--headline-2-size);line-height: var(--headline-2-lh);letter-spacing: var(--headline-2-tr); }
+.t-body-1    { font-weight: 500; font-size: var(--body-1-size);    line-height: var(--body-1-lh);    letter-spacing: var(--body-1-tr); }
+.t-body-1r   { font-weight: 500; font-size: var(--body-1-size);    line-height: var(--body-1r-lh);   letter-spacing: var(--body-1-tr); }
+.t-body-2    { font-weight: 500; font-size: var(--body-2-size);    line-height: var(--body-2-lh);    letter-spacing: var(--body-2-tr); }
+.t-label-1   { font-weight: 500; font-size: var(--label-1-size);   line-height: var(--label-1-lh);   letter-spacing: var(--label-1-tr); }
+.t-label-2   { font-weight: 500; font-size: var(--label-2-size);   line-height: var(--label-2-lh);   letter-spacing: var(--label-2-tr); }
+.t-caption-1 { font-weight: 500; font-size: var(--caption-1-size); line-height: var(--caption-1-lh); letter-spacing: var(--caption-1-tr); }
+.t-caption-2 { font-weight: 500; font-size: var(--caption-2-size); line-height: var(--caption-2-lh); letter-spacing: var(--caption-2-tr); }
+
+/* Native HTML mapping */
+h1 { font-weight: 700; font-size: var(--display-3-size); line-height: var(--display-3-lh); letter-spacing: var(--display-3-tr); color: var(--text-strong); }
+h2 { font-weight: 700; font-size: var(--title-1-size); line-height: var(--title-1-lh); letter-spacing: var(--title-1-tr); color: var(--text-strong); }
+h3 { font-weight: 700; font-size: var(--title-3-size); line-height: var(--title-3-lh); letter-spacing: var(--title-3-tr); color: var(--text-strong); }
+h4 { font-weight: 600; font-size: var(--heading-2-size); line-height: var(--heading-2-lh); letter-spacing: var(--heading-2-tr); color: var(--text-strong); }
+p  { font-size: var(--body-1-size); line-height: var(--body-1r-lh); letter-spacing: var(--body-1-tr); color: var(--text-primary); }
+small{ font-size: var(--label-2-size); line-height: var(--label-2-lh); letter-spacing: var(--label-2-tr); color: var(--text-neutralalt); }
+code { font-family: var(--font-mono); font-size: 14px; }
