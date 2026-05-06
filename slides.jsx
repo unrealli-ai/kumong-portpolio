@@ -226,7 +226,7 @@ const Callout = ({ n, title, body, style, line = 'left' }) => (
     <div style={{
       position: 'absolute',
       top: 28,
-      [line === 'left' ? 'left' : 'right']: '100%',
+      [line === 'right' ? 'left' : 'right']: '100%',
       width: 42,
       height: 1,
       background: '#0066FF',
@@ -247,7 +247,7 @@ const Callout = ({ n, title, body, style, line = 'left' }) => (
   </div>
 );
 
-const ExampleImageCard = ({ src, label, children, imageWidth = 350, imageHeight = 438 }) => (
+const ExampleImageCard = ({ src, label, children, imageWidth = 350, imageHeight = 438, imageAlign = 'left' }) => (
   <div style={{
     marginTop: 22,
     padding: '20px 24px',
@@ -269,6 +269,7 @@ const ExampleImageCard = ({ src, label, children, imageWidth = 350, imageHeight 
       background: '#FFF',
       border: '1px solid rgba(112,115,124,0.18)',
       boxShadow: '0 10px 26px rgba(23,23,25,0.12)',
+      marginLeft: imageAlign === 'right' ? 'auto' : 0,
     }}>
       <img src={src} style={{ width: '100%', height: '100%', objectFit: 'cover', display: 'block' }} />
     </div>
@@ -282,18 +283,21 @@ const DiagnosisExamplePreview = () => (
     label="포트폴리오용 익명화 예시 · 핵심 문제 정의"
     imageWidth={320}
     imageHeight={400}
+    imageAlign="right"
   >
     <Callout
       n="1"
       title="핵심 문제 정의"
       body="문제를 나열하는 대신 고객 관점에서 봐야 할 병목을 번호로 정리했습니다."
-      style={{ left: 402, top: 92 }}
+      style={{ left: 42, top: 104 }}
+      line="right"
     />
     <Callout
       n="2"
       title="한 줄 진단"
       body="진단 결과를 다음 실행으로 연결할 수 있도록 짧은 문장으로 요약했습니다."
-      style={{ left: 500, top: 284 }}
+      style={{ left: 124, top: 300 }}
+      line="right"
     />
   </ExampleImageCard>
 );
@@ -304,18 +308,21 @@ const RoadmapExamplePreview = () => (
     label="포트폴리오용 익명화 예시 · 실행 방향"
     imageWidth={430}
     imageHeight={538}
+    imageAlign="right"
   >
     <Callout
       n="1"
       title="3단계 로드맵"
       body="바로 큰 시스템으로 가지 않고 단계별 확장 방향을 먼저 보여줍니다."
-      style={{ left: 508, top: 108 }}
+      style={{ left: 42, top: 124 }}
+      line="right"
     />
     <Callout
       n="2"
       title="추천 실행 순서"
       body="지금 시작할 범위와 다음 확장 방향을 한눈에 확인할 수 있게 정리합니다."
-      style={{ left: 560, top: 356 }}
+      style={{ left: 112, top: 376 }}
+      line="right"
     />
   </ExampleImageCard>
 );
@@ -363,7 +370,7 @@ const Slide3 = () => (
           표면 문제
         </div>
         <div style={{ fontSize: 28, fontWeight: 700, color: '#1B1C1E', letterSpacing: '-0.022em' }}>
-          "사진을 PPT에 넣는 데 시간이 오래 걸림"
+          "사진을 PPT에 넣는 과정이 부담됨"
         </div>
       </div>
 
@@ -399,9 +406,9 @@ const Slide3 = () => (
         </div>
         <div style={{ display: 'flex', flexDirection: 'column', gap: 14 }}>
           {[
-            '대표사진 선정 기준이 없음',
-            '보고서 목적이 고객 관점으로 정리되지 않음',
-            '사진 선택·정리·문구 작성이 수작업에 의존함',
+            '대표사진 선정 기준을 더 명확히 할 필요',
+            '보고서 목적을 고객 관점으로 재정리할 여지',
+            '사진 선택·정리·문구 작성 흐름의 표준화 필요',
           ].map((t, i) => (
             <div key={i} style={{ display: 'flex', alignItems: 'flex-start', gap: 16 }}>
               <div style={{
